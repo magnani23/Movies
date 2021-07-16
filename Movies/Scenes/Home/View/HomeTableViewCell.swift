@@ -29,7 +29,7 @@ class HomeTableViewCell: UITableViewCell {
     let overviewLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
-        label.text = "Aqui estará uma prévia da sinopse do filme! Populado pela propriedade overview."
+        label.text = "Aqui estará uma prévia da sinopse do filme!"
         label.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         label.textAlignment = .left
         label.numberOfLines = 0
