@@ -6,12 +6,31 @@
 //
 
 import UIKit
+import SDWebImage
 
 class HomeTableViewCell: UITableViewCell {
     
+    //    var result: Result? {
+    //        didSet {
+    //            guard let movieResult = result else { return }
+    //
+    //            if let name  = movieResult.title {
+    //                self.movieTitleLabel.text = name
+    //            }
+    //
+    //            if let sinopse = movieResult.overview {
+    //                self.overviewLabel.text = sinopse
+    //            }
+    //
+    //            if let url = URL(string: "https://image.tmdb.org/t/p/w500/\(movieResult.poster_path ?? "")") {
+    //                self.movieImageView.sd_setImage(with: url)
+    //            }
+    //        }
+    //    }
+    
     let movieImageView: UIImageView = {
         let image = UIImageView()
-        image.contentMode = .scaleAspectFill
+        image.contentMode = .scaleToFill
         image.layer.cornerRadius = 5
         image.clipsToBounds = true
         image.image = UIImage(named: "John Wick")
@@ -21,7 +40,6 @@ class HomeTableViewCell: UITableViewCell {
     let movieTitleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 20)
-        label.text = "John Wick"
         label.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         return label
     }()
@@ -29,10 +47,9 @@ class HomeTableViewCell: UITableViewCell {
     let overviewLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
-        label.text = "Aqui estará uma prévia da sinopse do filme!"
         label.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         label.textAlignment = .left
-        label.numberOfLines = 0
+        label.numberOfLines = 3
         return label
     }()
     
@@ -114,5 +131,12 @@ class HomeTableViewCell: UITableViewCell {
         self.favoriteButton.heightAnchor.constraint(equalToConstant:24).isActive = true
         self.favoriteButton.trailingAnchor.constraint(equalTo:self.contentView.trailingAnchor, constant: -8).isActive = true
         self.favoriteButton.centerYAnchor.constraint(equalTo:self.contentView.centerYAnchor).isActive = true
+    }
+    
+    func prepare(movie: Result){
+        let url = URL(string: "https://image.tmdb.org/t/p/w500/\(movie.poster_path ?? "")")
+        self.movieImageView.sd_setImage(with: url)
+        self.movieTitleLabel.text = movie.title ?? ""
+        self.overviewLabel.text = movie.overview ?? ""
     }
 }
