@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MoviesViewController" customModule="Movies" customModuleProvider="target">
+            <connections>
+                <outlet property="movieBanner" destination="iQP-8h-aHJ" id="2ol-yS-wd3"/>
+                <outlet property="movieOriginalTitle" destination="5wB-Dy-v1o" id="7Rk-U7-Aae"/>
+                <outlet property="movieOverview" destination="JZA-bO-yrn" id="isx-Kk-r4v"/>
+                <outlet property="view" destination="hsa-wx-aH8" id="lDB-s6-kuC"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="hsa-wx-aH8">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="John Wick" translatesAutoresizingMaskIntoConstraints="NO" id="iQP-8h-aHJ">
+                    <rect key="frame" x="0.0" y="44" width="414" height="320"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="320" id="DXi-nL-9s1"/>
+                    </constraints>
+                </imageView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="h5z-Ue-Dv3">
+                    <rect key="frame" x="16" y="294" width="382" height="64"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Wick: De Volta ao Jogo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5wB-Dy-v1o">
+                            <rect key="frame" x="0.0" y="0.0" width="382" height="24"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                            <color key="textColor" systemColor="systemBackgroundColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Hx-Dr-5uK">
+                            <rect key="frame" x="0.0" y="40" width="382" height="24"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                            <color key="textColor" systemColor="secondarySystemBackgroundColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Gx-QB-Yf1">
+                    <rect key="frame" x="8" y="372" width="398" height="524"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wdh-fz-XEc">
+                            <rect key="frame" x="0.0" y="0.0" width="398" height="500"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sinopse" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bcl-7h-4xV">
+                                    <rect key="frame" x="8" y="8" width="382" height="57.5"/>
+                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="48"/>
+                                    <color key="textColor" systemColor="secondarySystemBackgroundColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JZA-bO-yrn">
+                                    <rect key="frame" x="8" y="81.5" width="382" height="264"/>
+                                    <string key="text">John Wick (Keanu Reeves) já foi um dos assassinos mais temidos da cidade de Nova York, trabalhando em parceria com a máfia russa. Um dia, ele decide se aposentar, e neste período tem que lidar com a triste morte de sua esposa. Vítima de uma doença grave, ela já previa a sua própria morte, e deu de presente ao marido um cachorro para cuidar em seu período de luto. No entanto, poucos dias após o funeral, o cachorro é morto por ladrões que roubam o seu carro. John Wick parte em busca de vingança contra estes homens que ele já conhecia muito bem, e que roubaram o último símbolo da mulher que ele amava.</string>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" systemColor="opaqueSeparatorColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="labelColor"/>
+                            <constraints>
+                                <constraint firstItem="JZA-bO-yrn" firstAttribute="leading" secondItem="wdh-fz-XEc" secondAttribute="leading" constant="8" id="DlA-Z7-oO3"/>
+                                <constraint firstAttribute="height" constant="500" id="Ilk-1s-TKH"/>
+                                <constraint firstItem="Bcl-7h-4xV" firstAttribute="leading" secondItem="wdh-fz-XEc" secondAttribute="leading" constant="8" id="Low-oc-OZN"/>
+                                <constraint firstAttribute="trailing" secondItem="Bcl-7h-4xV" secondAttribute="trailing" constant="8" id="ayD-hi-rdA"/>
+                                <constraint firstItem="JZA-bO-yrn" firstAttribute="top" secondItem="Bcl-7h-4xV" secondAttribute="bottom" constant="16" id="oc1-Qy-nPl"/>
+                                <constraint firstItem="Bcl-7h-4xV" firstAttribute="top" secondItem="wdh-fz-XEc" secondAttribute="top" constant="8" id="pym-xe-TgM"/>
+                                <constraint firstAttribute="trailing" secondItem="JZA-bO-yrn" secondAttribute="trailing" constant="8" id="top-2d-7Tg"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="wdh-fz-XEc" firstAttribute="trailing" secondItem="c1q-gP-BDQ" secondAttribute="trailing" id="VIU-HO-e3i"/>
+                        <constraint firstItem="wdh-fz-XEc" firstAttribute="bottom" secondItem="c1q-gP-BDQ" secondAttribute="bottom" id="mNI-Lj-izN"/>
+                        <constraint firstItem="wdh-fz-XEc" firstAttribute="top" secondItem="c1q-gP-BDQ" secondAttribute="top" id="opA-bf-Tnc"/>
+                        <constraint firstItem="wdh-fz-XEc" firstAttribute="width" secondItem="2Vw-CP-r20" secondAttribute="width" id="tmg-7d-LNr"/>
+                        <constraint firstItem="wdh-fz-XEc" firstAttribute="leading" secondItem="c1q-gP-BDQ" secondAttribute="leading" id="yl0-Qm-tNS"/>
+                    </constraints>
+                    <viewLayoutGuide key="contentLayoutGuide" id="c1q-gP-BDQ"/>
+                    <viewLayoutGuide key="frameLayoutGuide" id="2Vw-CP-r20"/>
+                </scrollView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="agz-GF-gxd"/>
+            <color key="backgroundColor" systemColor="labelColor"/>
+            <constraints>
+                <constraint firstItem="5Gx-QB-Yf1" firstAttribute="top" secondItem="iQP-8h-aHJ" secondAttribute="bottom" constant="8" id="7LN-hp-rd1"/>
+                <constraint firstItem="h5z-Ue-Dv3" firstAttribute="top" secondItem="agz-GF-gxd" secondAttribute="top" constant="250" id="Aeb-LZ-aie"/>
+                <constraint firstItem="h5z-Ue-Dv3" firstAttribute="leading" secondItem="agz-GF-gxd" secondAttribute="leading" constant="16" id="Ouh-hu-FCu"/>
+                <constraint firstAttribute="trailing" secondItem="5Gx-QB-Yf1" secondAttribute="trailing" constant="8" id="VZb-WZ-7cG"/>
+                <constraint firstItem="iQP-8h-aHJ" firstAttribute="top" secondItem="agz-GF-gxd" secondAttribute="top" id="YOQ-N4-cLZ"/>
+                <constraint firstItem="5Gx-QB-Yf1" firstAttribute="leading" secondItem="hsa-wx-aH8" secondAttribute="leading" constant="8" id="Z0f-G6-Fpn"/>
+                <constraint firstItem="iQP-8h-aHJ" firstAttribute="leading" secondItem="agz-GF-gxd" secondAttribute="leading" id="gja-Cu-Le5"/>
+                <constraint firstItem="agz-GF-gxd" firstAttribute="trailing" secondItem="iQP-8h-aHJ" secondAttribute="trailing" id="uEW-yE-LuZ"/>
+                <constraint firstItem="agz-GF-gxd" firstAttribute="trailing" secondItem="h5z-Ue-Dv3" secondAttribute="trailing" constant="16" id="xmS-Q5-827"/>
+                <constraint firstAttribute="bottom" secondItem="5Gx-QB-Yf1" secondAttribute="bottom" id="zFL-s2-jq3"/>
+            </constraints>
+            <point key="canvasLocation" x="-88.405797101449281" y="103.79464285714285"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="John Wick" width="1920" height="1080"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
