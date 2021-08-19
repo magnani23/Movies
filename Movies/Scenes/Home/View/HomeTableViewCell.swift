@@ -133,10 +133,10 @@ class HomeTableViewCell: UITableViewCell {
         self.favoriteButton.centerYAnchor.constraint(equalTo:self.contentView.centerYAnchor).isActive = true
     }
     
-    func prepare(movie: Result){
-        let url = URL(string: "https://image.tmdb.org/t/p/w500/\(movie.poster_path ?? "")")
+    func prepare(movie: MovieViewModel){
+        let url = URL(string: "https://image.tmdb.org/t/p/w500/\(movie.poster_path)")
         self.movieImageView.sd_setImage(with: url)
-        self.movieTitleLabel.text = movie.title ?? ""
-        self.overviewLabel.text = movie.overview ?? ""
+        self.movieTitleLabel.text = movie.title
+        self.overviewLabel.text = movie.overview
     }
 }
