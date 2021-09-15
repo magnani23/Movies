@@ -16,9 +16,12 @@ struct Result: Codable {
     let backdrop_path: String?
     let genre_ids: [Int]
     let id: Int?
-    let original_title, overview: String?
+    let original_title: String?
+    let overview: String?
     let popularity: Double?
-    let poster_path, releaseDate, title: String?
+    let poster_path: String?
+    let releaseDate: String?
+    let title: String?
     let video: Bool?
     let vote_average: Double?
     let vote_count: Int?

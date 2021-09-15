@@ -7,17 +7,20 @@
 
 import Foundation
 
-struct MovieViewModel {
+class MovieViewModel {
     
-    var title: String
-    var overview: String
-    var poster_path: String
+    var movies: MoviesModel?
+    var selectedMovie: Result?
     
-    //Dependecy Injection
     
-    init(movieResult: Result) {
-        self.title = movieResult.original_title ?? ""
-        self.overview = movieResult.overview ?? ""
-        self.poster_path = movieResult.poster_path ?? ""
+    func fetchData(success: @escaping() -> (), failure: @escaping(MovieError) -> ()) {
+        Service.loadMovies { (movies) in
+            self.movies = movies
+            success()
+        } onError: { (error) in
+            failure(error)
+        }
     }
 }
+
+//Toda VC tem seu proprio viewModel

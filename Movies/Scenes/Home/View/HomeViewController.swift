@@ -9,13 +9,17 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    let homeTableView = UITableView()
-    var moviesViewModel = [MovieViewModel]()
+    //MARK: - Properties
     
+    private let homeTableView = UITableView()
+    private let moviesViewModel = MovieViewModel()
+    
+    //MARK: - Life Cicle
+
     override func viewDidLoad() {
         self.fetchMovies()
-
     }
+    
     override func loadView() {
         super.loadView()
         self.title = "Home"
@@ -24,8 +28,10 @@ class HomeViewController: UIViewController {
         self.homeTableView.delegate   = self
     }
     
+    //MARK: - Methods
+    
     private func prepareLayout() {
-        view.addSubview(homeTableView)
+        self.view.addSubview(homeTableView)
         self.setTableViewConstraints()
         self.homeTableView.removeExtraCellLines()
     }
@@ -39,16 +45,15 @@ class HomeViewController: UIViewController {
     }
     
     private func fetchMovies() {
-        Service.loadMovies { (moviesResult) in
-            self.moviesViewModel = moviesResult.results.map({return MovieViewModel(movieResult: $0)})
+        self.moviesViewModel.fetchData {
             self.prepareLayout()
             self.homeTableView.reloadData()
-        } onError: { (error) in
+        } failure: { (error) in
+            //Add error screen
             print(error)
         }
     }
 }
-
 
 
 //MARK: - DataSource and Delegate
@@ -56,12 +61,12 @@ class HomeViewController: UIViewController {
 extension HomeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return moviesViewModel.count
+        return moviesViewModel.movies?.results.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let movieList = moviesViewModel.movies?.results[indexPath.row] else { return UITableViewCell() }
         let cell = tableView.dequeueReusableCell(withIdentifier: "homeCell", for: indexPath) as! HomeTableViewCell
-        let movieList = moviesViewModel[indexPath.row]
         cell.prepare(movie: movieList)
         return cell
     }
@@ -70,8 +75,9 @@ extension HomeViewController: UITableViewDataSource {
 extension HomeViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let viewController = MoviesViewController(movie: (moviesViewModel[indexPath.row]))
-//        self.navigationController?.pushViewController(viewController, animated: true)
+        self.moviesViewModel.selectedMovie = moviesViewModel.movies?.results[indexPath.row]
+        let viewController = MoviesViewController(movie: moviesViewModel)
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

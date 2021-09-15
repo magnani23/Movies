@@ -11,7 +11,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MoviesViewController" customModule="Movies" customModuleProvider="target">
             <connections>
                 <outlet property="movieBanner" destination="iQP-8h-aHJ" id="2ol-yS-wd3"/>
-                <outlet property="movieOriginalTitle" destination="5wB-Dy-v1o" id="7Rk-U7-Aae"/>
                 <outlet property="movieOverview" destination="JZA-bO-yrn" id="isx-Kk-r4v"/>
                 <outlet property="view" destination="hsa-wx-aH8" id="lDB-s6-kuC"/>
             </connections>
@@ -27,23 +26,6 @@
                         <constraint firstAttribute="height" constant="320" id="DXi-nL-9s1"/>
                     </constraints>
                 </imageView>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="h5z-Ue-Dv3">
-                    <rect key="frame" x="16" y="294" width="382" height="64"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Wick: De Volta ao Jogo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5wB-Dy-v1o">
-                            <rect key="frame" x="0.0" y="0.0" width="382" height="24"/>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                            <color key="textColor" systemColor="systemBackgroundColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Hx-Dr-5uK">
-                            <rect key="frame" x="0.0" y="40" width="382" height="24"/>
-                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                            <color key="textColor" systemColor="secondarySystemBackgroundColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                </stackView>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Gx-QB-Yf1">
                     <rect key="frame" x="8" y="372" width="398" height="524"/>
                     <subviews>
@@ -91,14 +73,11 @@
             <color key="backgroundColor" systemColor="labelColor"/>
             <constraints>
                 <constraint firstItem="5Gx-QB-Yf1" firstAttribute="top" secondItem="iQP-8h-aHJ" secondAttribute="bottom" constant="8" id="7LN-hp-rd1"/>
-                <constraint firstItem="h5z-Ue-Dv3" firstAttribute="top" secondItem="agz-GF-gxd" secondAttribute="top" constant="250" id="Aeb-LZ-aie"/>
-                <constraint firstItem="h5z-Ue-Dv3" firstAttribute="leading" secondItem="agz-GF-gxd" secondAttribute="leading" constant="16" id="Ouh-hu-FCu"/>
                 <constraint firstAttribute="trailing" secondItem="5Gx-QB-Yf1" secondAttribute="trailing" constant="8" id="VZb-WZ-7cG"/>
                 <constraint firstItem="iQP-8h-aHJ" firstAttribute="top" secondItem="agz-GF-gxd" secondAttribute="top" id="YOQ-N4-cLZ"/>
                 <constraint firstItem="5Gx-QB-Yf1" firstAttribute="leading" secondItem="hsa-wx-aH8" secondAttribute="leading" constant="8" id="Z0f-G6-Fpn"/>
                 <constraint firstItem="iQP-8h-aHJ" firstAttribute="leading" secondItem="agz-GF-gxd" secondAttribute="leading" id="gja-Cu-Le5"/>
                 <constraint firstItem="agz-GF-gxd" firstAttribute="trailing" secondItem="iQP-8h-aHJ" secondAttribute="trailing" id="uEW-yE-LuZ"/>
-                <constraint firstItem="agz-GF-gxd" firstAttribute="trailing" secondItem="h5z-Ue-Dv3" secondAttribute="trailing" constant="16" id="xmS-Q5-827"/>
                 <constraint firstAttribute="bottom" secondItem="5Gx-QB-Yf1" secondAttribute="bottom" id="zFL-s2-jq3"/>
             </constraints>
             <point key="canvasLocation" x="-88.405797101449281" y="103.79464285714285"/>
@@ -114,9 +93,6 @@
         </systemColor>
         <systemColor name="secondarySystemBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>
