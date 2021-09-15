@@ -8,10 +8,10 @@
 import Foundation
 
 struct MoviesModel: Codable {
-    let results: [Result]
+    let results: [MoviesResults]
 }
 
-struct Result: Codable {
+struct MoviesResults: Codable {
     let adult: Bool?
     let backdrop_path: String?
     let genre_ids: [Int]

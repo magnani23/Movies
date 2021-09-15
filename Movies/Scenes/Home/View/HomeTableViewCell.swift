@@ -121,7 +121,7 @@ class HomeTableViewCell: UITableViewCell {
         self.favoriteButton.centerYAnchor.constraint(equalTo:self.contentView.centerYAnchor).isActive = true
     }
     
-    func prepare(movie: Result){
+    func prepare(movie: MoviesResults){
         if let posterPath = movie.poster_path {
             let url = URL(string: "https://image.tmdb.org/t/p/w500/\(posterPath)")
             self.movieImageView.sd_setImage(with: url)

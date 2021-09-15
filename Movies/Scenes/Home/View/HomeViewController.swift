@@ -46,8 +46,11 @@ class HomeViewController: UIViewController {
     
     private func fetchMovies() {
         self.moviesViewModel.fetchData {
-            self.prepareLayout()
-            self.homeTableView.reloadData()
+            DispatchQueue.main.async {
+                self.prepareLayout()
+                self.homeTableView.reloadData()
+            }
+            
         } failure: { (error) in
             //Add error screen
             print(error)
