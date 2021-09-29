@@ -78,8 +78,8 @@ extension HomeViewController: UITableViewDataSource {
 extension HomeViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.moviesViewModel.selectedMovie = moviesViewModel.movies?.results[indexPath.row]
-        let viewController = MoviesViewController(movie: moviesViewModel)
+        guard let results = moviesViewModel.movies?.results[indexPath.row] else { return }
+        let viewController = MoviesViewController(result: results)
         self.navigationController?.pushViewController(viewController, animated: true)
     }
     

@@ -13,10 +13,10 @@ class MoviesViewController: UIViewController {
     @IBOutlet private weak var movieBanner: UIImageView!
     @IBOutlet private weak var movieOverview: UILabel!
     
-    private var movie: MovieViewModel
+    private var result: MoviesResults
     
-    init(movie: MovieViewModel){
-        self.movie = movie
+    init(result: MoviesResults){
+        self.result = result
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -30,10 +30,10 @@ class MoviesViewController: UIViewController {
     }
     
     private func prepare(){
-        if let posterPath = movie.selectedMovie?.poster_path {
+        if let posterPath = result.poster_path {
             let url = URL(string: "https://image.tmdb.org/t/p/w500/\(posterPath)")
             self.movieBanner.sd_setImage(with: url)
         }
-        self.movieOverview.text = movie.selectedMovie?.overview
+        self.movieOverview.text = result.overview
     }
 }

@@ -12,9 +12,7 @@ class MovieViewModel {
     private static let APIKEY =  "54fdb3ed792cb3dcc5b1aa2c6d87647b"
     private static let basePath = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=\(APIKEY)")
     
-    var movies: MoviesModel? = nil
-    var selectedMovie: MoviesResults?
-    
+    var movies: MoviesModel? = nil    
     
     func fetchData(success: @escaping() -> (), failure: @escaping(Error) -> ()) {
         Service.request(url: MovieViewModel.basePath, expecting: MoviesModel.self)
