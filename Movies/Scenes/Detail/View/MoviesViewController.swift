@@ -11,13 +11,12 @@ import SDWebImage
 class MoviesViewController: UIViewController {
     
     @IBOutlet private weak var movieBanner: UIImageView!
-    @IBOutlet private weak var movieOriginalTitle: UILabel!
     @IBOutlet private weak var movieOverview: UILabel!
     
-    var movie: Result!
+    private var result: MoviesResults
     
-    init(movie: Result){
-        self.movie = movie
+    init(result: MoviesResults){
+        self.result = result
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -28,13 +27,13 @@ class MoviesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.prepare()
-        
     }
     
-    func prepare(){
-        let url = URL(string: "https://image.tmdb.org/t/p/w500/\(movie?.poster_path ?? "")")
-        self.movieBanner.sd_setImage(with: url)
-        self.movieOriginalTitle.text = movie?.title ?? ""
-        self.movieOverview.text = movie?.overview ?? ""
+    private func prepare(){
+        if let posterPath = result.poster_path {
+            let url = URL(string: "https://image.tmdb.org/t/p/w500/\(posterPath)")
+            self.movieBanner.sd_setImage(with: url)
+        }
+        self.movieOverview.text = result.overview
     }
 }

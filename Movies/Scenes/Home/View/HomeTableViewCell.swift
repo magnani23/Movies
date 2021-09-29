@@ -10,23 +10,7 @@ import SDWebImage
 
 class HomeTableViewCell: UITableViewCell {
     
-    //    var result: Result? {
-    //        didSet {
-    //            guard let movieResult = result else { return }
-    //
-    //            if let name  = movieResult.title {
-    //                self.movieTitleLabel.text = name
-    //            }
-    //
-    //            if let sinopse = movieResult.overview {
-    //                self.overviewLabel.text = sinopse
-    //            }
-    //
-    //            if let url = URL(string: "https://image.tmdb.org/t/p/w500/\(movieResult.poster_path ?? "")") {
-    //                self.movieImageView.sd_setImage(with: url)
-    //            }
-    //        }
-    //    }
+    //MARK: - Properties
     
     let movieImageView: UIImageView = {
         let image = UIImageView()
@@ -67,6 +51,8 @@ class HomeTableViewCell: UITableViewCell {
         return button
     }()
     
+    //MARK: - Init
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.prepareLayout()
@@ -76,6 +62,8 @@ class HomeTableViewCell: UITableViewCell {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
+    
+    //MARK: - Methods
     
     private func prepareLayout(){
         self.addSubview(movieImageView)
@@ -133,10 +121,13 @@ class HomeTableViewCell: UITableViewCell {
         self.favoriteButton.centerYAnchor.constraint(equalTo:self.contentView.centerYAnchor).isActive = true
     }
     
-    func prepare(movie: Result){
-        let url = URL(string: "https://image.tmdb.org/t/p/w500/\(movie.poster_path ?? "")")
-        self.movieImageView.sd_setImage(with: url)
-        self.movieTitleLabel.text = movie.title ?? ""
-        self.overviewLabel.text = movie.overview ?? ""
+    func prepare(movie: MoviesResults){
+        if let posterPath = movie.poster_path {
+            let url = URL(string: "https://image.tmdb.org/t/p/w500/\(posterPath)")
+            self.movieImageView.sd_setImage(with: url)
+        }
+        
+        self.movieTitleLabel.text = movie.title
+        self.overviewLabel.text = movie.overview
     }
 }
